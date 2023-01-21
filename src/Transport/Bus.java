@@ -20,4 +20,19 @@ public class Bus extends Transport {
         System.out.println(this.getBrand() + " " + this.getModel() + " затормозил");
         System.out.println(this.getBrand() + " " + this.getModel() + " заглушил двигатель");
     }
+
+    @Override
+    public void pitStop() {
+        System.out.println(this.getBrand() + " " + this.getModel() + " заходит на пит-стоп");
+    }
+
+    @Override
+    public void getMaxSpeed(int speed) {
+        System.out.println(this.getBrand() + " " + this.getModel() + " разогнался до " + speed + " км/ч!");
+    }
+
+    @Override
+    public void getBestLap(int lapTime) {
+        System.out.println("У " + this.getBrand() + " " + this.getModel() + " лучшее время круга: " + lapTime + " сек.");
+    }
 }

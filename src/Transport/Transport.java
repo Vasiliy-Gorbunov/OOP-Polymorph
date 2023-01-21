@@ -1,6 +1,6 @@
 package Transport;
 
-public abstract class Transport {
+public abstract class Transport implements Competitive {
 
     private final String brand;
     private final String model;

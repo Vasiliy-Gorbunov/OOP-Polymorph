@@ -16,11 +16,14 @@ public class Main {
         Bus nefaz = new Bus("НЕФАЗ", "5299", 7.5);
         Bus higer = new Bus("HIGER", "KLQ6128LQ");
         Bus kingLong = new Bus("KING LONG", "XMQ6129Y");
-        System.out.println(bmw);
-        System.out.println(daf);
-        System.out.println(maz);
-        mercedes.startMoving();
-        volvo.endMoving();
-        nefaz.startMoving();
+//        System.out.println(bmw);
+//        System.out.println(daf);
+//        System.out.println(maz);
+//        mercedes.startMoving();
+//        volvo.endMoving();
+//        nefaz.startMoving();
+        bmw.pitStop();
+        volvo.getMaxSpeed(150);
+        higer.getBestLap(248);
     }
 }
