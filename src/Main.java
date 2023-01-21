@@ -1,3 +1,6 @@
+import Drivers.B_licence;
+import Drivers.C_licence;
+import Drivers.D_licence;
 import Transport.Bus;
 import Transport.Car;
 import Transport.Truck;
@@ -22,8 +25,14 @@ public class Main {
 //        mercedes.startMoving();
 //        volvo.endMoving();
 //        nefaz.startMoving();
-        bmw.pitStop();
-        volvo.getMaxSpeed(150);
-        higer.getBestLap(248);
+//        bmw.pitStop();
+//        volvo.getMaxSpeed(150);
+//        higer.getBestLap(248);
+        D_licence max = new D_licence("Max", true, 5);
+        maz.getDriver(max);
+        C_licence ron = new C_licence("Ron", true, 8);
+        daf.getDriver(ron);
+        B_licence shon = new B_licence("Shon", true, 10);
+        ford.getDriver(shon);
     }
 }

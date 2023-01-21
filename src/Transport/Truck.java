@@ -1,6 +1,8 @@
 package Transport;
 
-public class Truck extends Transport {
+import Drivers.C_licence;
+
+public class Truck<A extends C_licence> extends Transport {
 
     public Truck(String brand, String model) {
         super(brand, model);
@@ -35,5 +37,9 @@ public class Truck extends Transport {
     @Override
     public void getBestLap(int lapTime) {
         System.out.println("У " + this.getBrand() + " " + this.getModel() + " лучшее время круга: " + lapTime + " сек.");
+    }
+
+    public void getDriver(A driver) {
+        System.out.println(driver.getName() + " управляет автомобилем " + this.getBrand() + " " + this.getModel() + " и будет участвовать в заезде");
     }
 }

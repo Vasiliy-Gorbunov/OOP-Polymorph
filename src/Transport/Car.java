@@ -1,6 +1,9 @@
 package Transport;
 
-public class Car extends Transport {
+import Drivers.B_licence;
+import Drivers.Driver;
+
+public class Car<A extends B_licence> extends Transport {
 
     public Car(String brand, String model) {
         super(brand, model);
@@ -22,6 +25,10 @@ public class Car extends Transport {
         System.out.println(this.getBrand() + " " + this.getModel() + " заглушил двигатель");
     }
 
+    public void getDriver(A driver) {
+        System.out.println(driver.getName() + " управляет автомобилем " + this.getBrand() + " " + this.getModel() + " и будет участвовать в заезде");
+    }
+
     @Override
     public void pitStop() {
         System.out.println(this.getBrand() + " " + this.getModel() + " заходит на пит-стоп");
@@ -36,4 +43,5 @@ public class Car extends Transport {
     public void getBestLap(int lapTime) {
         System.out.println("У " + this.getBrand() + " " + this.getModel() + " лучшее время круга: " + lapTime + " сек.");
     }
+
 }

@@ -1,5 +1,7 @@
 package Transport;
 
+import Drivers.Driver;
+
 public abstract class Transport implements Competitive {
 
     private final String brand;
