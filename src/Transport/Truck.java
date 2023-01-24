@@ -4,6 +4,29 @@ import Drivers.C_licence;
 
 public class Truck<A extends C_licence> extends Transport {
 
+    public enum BodyType {
+        N1(null, 3.5f),
+        N2(3.5f, 12f),
+        N3(12f, null);
+
+        private final Float lowerLimit;
+        private final Float upperLimit;
+
+        BodyType(Float lowerLimit, Float upperLimit) {
+            this.lowerLimit = lowerLimit;
+            this.upperLimit = upperLimit;
+        }
+
+        @Override
+        public String toString() {
+            if (lowerLimit == null) {
+                return "Грузоподъёмность до " + upperLimit + "тонн";
+            } else if (upperLimit == null) {
+                return "Грузоподъёмность от " + lowerLimit + "тонн";
+            } else return "Грузоподъёмность от " + lowerLimit + "до" + upperLimit + "тонн";
+        }
+    }
+
     public Truck(String brand, String model) {
         super(brand, model);
     }

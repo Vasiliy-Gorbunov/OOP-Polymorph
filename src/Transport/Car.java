@@ -5,6 +5,30 @@ import Drivers.Driver;
 
 public class Car<A extends B_licence> extends Transport {
 
+    public enum BodyType {
+        SEDAN("Седан"),
+        HATCHBACK("Хетчбек"),
+        COUPE("Купе"),
+        UNIVERSAL("Универсал"),
+        OFF_ROAD("Внедорожник"),
+        CROSSOVER("Кроссовер"),
+        PICKUP("Пикап"),
+        VAN("Фургон"),
+        MINIVAN("Минивэн");
+
+        private final String typeName;
+
+        BodyType(String typeName) {
+            this.typeName = typeName;
+        }
+
+        @Override
+        public String toString() {
+            return "Тип кузова: " + typeName;
+        }
+    }
+
+
     public Car(String brand, String model) {
         super(brand, model);
     }

@@ -3,6 +3,32 @@ package Transport;
 import Drivers.D_licence;
 
 public class Bus<A extends D_licence> extends Transport {
+
+    public enum BodyType{
+        EXTRA_SMALL(null, 10),
+        SMALL(null, 25),
+        MEDIUM(40, 50),
+        HIGH(60,80),
+        EXTRA_HIGH(100,120);
+
+        private final Integer lowerCapacity;
+        private final Integer higherCapacity;
+
+        BodyType(Integer lowerCapacity, Integer higherCapacity) {
+            this.lowerCapacity = lowerCapacity;
+            this.higherCapacity = higherCapacity;
+        }
+
+        @Override
+        public String toString() {
+            if (lowerCapacity == null) {
+                return "Вместимость до " + higherCapacity + "человек";
+            } else if (higherCapacity == null) {
+                return "Вместимость от " + lowerCapacity + "человек";
+            } else return "Вместимость от " + lowerCapacity + "до" + higherCapacity + "человек";
+        }
+    }
+
     public Bus(String brand, String model) {
         super(brand, model);
     }
