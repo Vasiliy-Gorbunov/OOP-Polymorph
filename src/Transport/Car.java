@@ -28,6 +28,7 @@ public class Car<A extends B_licence> extends Transport {
         }
     }
 
+    private BodyType bodyType;
 
     public Car(String brand, String model) {
         super(brand, model);
@@ -35,6 +36,11 @@ public class Car<A extends B_licence> extends Transport {
 
     public Car(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
+    }
+
+    public Car(String brand, String model, double engineVolume, BodyType bodyType) {
+        super(brand, model, engineVolume);
+        this.bodyType = bodyType;
     }
 
     @Override
@@ -47,6 +53,13 @@ public class Car<A extends B_licence> extends Transport {
     public void endMoving() {
         System.out.println(this.getBrand() + " " + this.getModel() + " затормозил");
         System.out.println(this.getBrand() + " " + this.getModel() + " заглушил двигатель");
+    }
+
+    @Override
+    public void printType() {
+        if (bodyType == null) {
+            System.out.println("Данных по транспортному средству недостаточно");
+        } else System.out.println("Тип ТС: "+bodyType.name()+"\n "+getBodyType());
     }
 
     public void getDriver(A driver) {
@@ -68,4 +81,11 @@ public class Car<A extends B_licence> extends Transport {
         System.out.println("У " + this.getBrand() + " " + this.getModel() + " лучшее время круга: " + lapTime + " сек.");
     }
 
+    public BodyType getBodyType() {
+        return bodyType;
+    }
+
+    public void setBodyType(BodyType bodyType) {
+        this.bodyType = bodyType;
+    }
 }

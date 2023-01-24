@@ -64,4 +64,6 @@ public abstract class Transport implements Competitive {
                 "Модель: " + model + "\n " +
                 "Объём двигателя: " + engineVolume + "\n" + separator();
     }
+
+    public abstract void printType();
 }

@@ -28,11 +28,28 @@ public class Main {
 //        bmw.pitStop();
 //        volvo.getMaxSpeed(150);
 //        higer.getBestLap(248);
-        D_licence max = new D_licence("Max", true, 5);
-        maz.getDriver(max);
-        C_licence ron = new C_licence("Ron", true, 8);
-        daf.getDriver(ron);
-        B_licence shon = new B_licence("Shon", true, 10);
-        ford.getDriver(shon);
+//        D_licence max = new D_licence("Max", true, 5);
+//        maz.getDriver(max);
+//        C_licence ron = new C_licence("Ron", true, 8);
+//        daf.getDriver(ron);
+//        B_licence shon = new B_licence("Shon", true, 10);
+//        ford.getDriver(shon);
+//        maz.setBodyType(Bus.BodyType.MEDIUM);
+//        nefaz.setBodyType(Bus.BodyType.HIGH);
+//        maz.printType();
+//        nefaz.printType();
+//        higer.printType();
+//        bmw.setBodyType(Car.BodyType.COUPE);
+//        mercedes.setBodyType(Car.BodyType.SEDAN);
+//        bmw.printType();
+//        mercedes.printType();
+//        ford.printType();
+        daf.setBodyType(Truck.BodyType.N1);
+        volvo.setBodyType(Truck.BodyType.N2);
+        scania.setBodyType(Truck.BodyType.N3);
+        daf.printType();
+        volvo.printType();
+        scania.printType();
+        kamaz.printType();
     }
 }

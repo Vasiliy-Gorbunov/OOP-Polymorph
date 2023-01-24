@@ -20,12 +20,14 @@ public class Truck<A extends C_licence> extends Transport {
         @Override
         public String toString() {
             if (lowerLimit == null) {
-                return "Грузоподъёмность до " + upperLimit + "тонн";
+                return "Грузоподъёмность до " + upperLimit + " тонн";
             } else if (upperLimit == null) {
-                return "Грузоподъёмность от " + lowerLimit + "тонн";
-            } else return "Грузоподъёмность от " + lowerLimit + "до" + upperLimit + "тонн";
+                return "Грузоподъёмность от " + lowerLimit + " тонн";
+            } else return "Грузоподъёмность от " + lowerLimit + " до " + upperLimit + " тонн";
         }
     }
+
+    private BodyType bodyType;
 
     public Truck(String brand, String model) {
         super(brand, model);
@@ -33,6 +35,11 @@ public class Truck<A extends C_licence> extends Transport {
 
     public Truck(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
+    }
+
+    public Truck(String brand, String model, double engineVolume, BodyType bodyType) {
+        super(brand, model, engineVolume);
+        this.bodyType = bodyType;
     }
 
     @Override
@@ -45,6 +52,13 @@ public class Truck<A extends C_licence> extends Transport {
     public void endMoving() {
         System.out.println(this.getBrand() + " " + this.getModel() + " затормозил");
         System.out.println(this.getBrand() + " " + this.getModel() + " заглушил двигатель");
+    }
+
+    @Override
+    public void printType() {
+        if (bodyType == null) {
+            System.out.println("Данных по транспортному средству недостаточно");
+        } else System.out.println("Тип ТС: "+bodyType.name()+"\n "+getBodyType());
     }
 
     @Override
@@ -64,5 +78,13 @@ public class Truck<A extends C_licence> extends Transport {
 
     public void getDriver(A driver) {
         System.out.println(driver.getName() + " управляет автомобилем " + this.getBrand() + " " + this.getModel() + " и будет участвовать в заезде");
+    }
+
+    public BodyType getBodyType() {
+        return bodyType;
+    }
+
+    public void setBodyType(BodyType bodyType) {
+        this.bodyType = bodyType;
     }
 }

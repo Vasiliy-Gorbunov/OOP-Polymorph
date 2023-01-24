@@ -22,12 +22,14 @@ public class Bus<A extends D_licence> extends Transport {
         @Override
         public String toString() {
             if (lowerCapacity == null) {
-                return "Вместимость до " + higherCapacity + "человек";
+                return "Вместимость до " + higherCapacity + " человек";
             } else if (higherCapacity == null) {
-                return "Вместимость от " + lowerCapacity + "человек";
-            } else return "Вместимость от " + lowerCapacity + "до" + higherCapacity + "человек";
+                return "Вместимость от " + lowerCapacity + " человек";
+            } else return "Вместимость от " + lowerCapacity + " до " + higherCapacity + " человек";
         }
     }
+
+    private BodyType bodyType;
 
     public Bus(String brand, String model) {
         super(brand, model);
@@ -35,6 +37,11 @@ public class Bus<A extends D_licence> extends Transport {
 
     public Bus(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
+    }
+
+    public Bus(String brand, String model, double engineVolume, BodyType bodyType) {
+        super(brand, model, engineVolume);
+        this.bodyType = bodyType;
     }
 
     @Override
@@ -64,7 +71,22 @@ public class Bus<A extends D_licence> extends Transport {
         System.out.println("У " + this.getBrand() + " " + this.getModel() + " лучшее время круга: " + lapTime + " сек.");
     }
 
+    @Override
+    public void printType() {
+        if (bodyType == null) {
+            System.out.println("Данных по транспортному средству недостаточно");
+        } else System.out.println("Тип ТС: "+bodyType.name()+"\n "+getBodyType());
+    }
+
     public void getDriver(A driver) {
         System.out.println(driver.getName() + " управляет автомобилем " + this.getBrand() + " " + this.getModel() + " и будет участвовать в заезде");
+    }
+
+    public BodyType getBodyType() {
+        return bodyType;
+    }
+
+    public void setBodyType(BodyType bodyType) {
+        this.bodyType = bodyType;
     }
 }
