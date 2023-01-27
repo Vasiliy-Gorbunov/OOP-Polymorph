@@ -1,9 +1,5 @@
 import Drivers.*;
-import Transport.Bus;
-import Transport.Car;
-import Transport.Transport;
-import Transport.Truck;
-import Transport.Mechanic;
+import Transport.*;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -85,6 +81,14 @@ public class Main {
         Transport.addMechanic(ford, clark);
         Transport.addMechanic(aston, bob);
         System.out.println(Transport.getMechanics(ford));
+
+        ServiceStation.addToQueue(ford);
+        ServiceStation.addToQueue(aston);
+        ServiceStation.addToQueue(kamaz);
+        ServiceStation.addToQueue(daf);
+        ServiceStation.addToQueue(scania);
+        ServiceStation.addToQueue(maz);
+        ServiceStation.conductService();
 
 //        alex.performMaintenance(daf);
 //        bob.repairCar(ford);
