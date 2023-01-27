@@ -3,11 +3,15 @@ package Transport;
 import Drivers.CheckLicenceException;
 import Drivers.Driver;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public abstract class Transport implements Competitive {
 
     private final String brand;
     private final String model;
     private double engineVolume;
+    private LinkedList<Mechanic> mechanics = new LinkedList<>();
 
     public Transport(String brand, String model) {
         this(brand, model, 1.5);
@@ -69,4 +73,12 @@ public abstract class Transport implements Competitive {
     public abstract void printType();
 
     public abstract void passDiagnostics(Driver driver) throws CheckLicenceException;
+
+    public static void addMechanic(Transport transport, Mechanic mechanic) {
+        transport.mechanics.add(mechanic);
+    }
+
+    public static List<Mechanic> getMechanics(Transport transport) {
+        return transport.mechanics;
+    }
 }

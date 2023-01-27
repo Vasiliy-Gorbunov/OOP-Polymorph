@@ -1,10 +1,12 @@
-import Drivers.B_licence;
-import Drivers.C_licence;
-import Drivers.CheckLicenceException;
-import Drivers.D_licence;
+import Drivers.*;
 import Transport.Bus;
 import Transport.Car;
+import Transport.Transport;
 import Transport.Truck;
+import Transport.Mechanic;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws CheckLicenceException {
@@ -29,12 +31,9 @@ public class Main {
 //        bmw.pitStop();
 //        volvo.getMaxSpeed(150);
 //        higer.getBestLap(248);
-        D_licence max = new D_licence("Max", true, 5);
-        maz.getDriver(max);
-        C_licence ron = new C_licence("Ron", true, 8);
-        daf.passDiagnostics(ron);
-        B_licence shon = new B_licence("Shon", false, 10);
-        ford.passDiagnostics(shon);
+//        maz.getDriver(max);
+//        daf.passDiagnostics(ron);
+//        ford.passDiagnostics(shon);
 //        maz.setBodyType(Bus.BodyType.MEDIUM);
 //        nefaz.setBodyType(Bus.BodyType.HIGH);
 //        maz.printType();
@@ -52,6 +51,42 @@ public class Main {
 //        volvo.printType();
 //        scania.printType();
 //        kamaz.printType();
+        List<Transport> transports = new LinkedList<>();
+        transports.add(bmw);
+        transports.add(mercedes);
+        transports.add(ford);
+        transports.add(aston);
+        transports.add(daf);
+        transports.add(volvo);
+        transports.add(scania);
+        transports.add(kamaz);
+        transports.add(maz);
+        transports.add(nefaz);
+        transports.add(higer);
+        transports.add(kingLong);
 
+        B_licence shon = new B_licence("Shon", true, 10);
+        C_licence ron = new C_licence("Ron", true, 8);
+        D_licence max = new D_licence("Max", true, 5);
+
+        List<Driver> drivers = new LinkedList<>();
+        drivers.add(shon);
+        drivers.add(ron);
+        drivers.add(max);
+
+        Mechanic alex = new Mechanic ("Alex", "PitMoto");
+        Mechanic bob = new Mechanic("Bob", "Ferrari");
+        Mechanic clark = new Mechanic("Clark", "Donnako");
+        Mechanic donny = new Mechanic("Donny", "RepairCo");
+        Mechanic john = new Mechanic("John", "FixIt");
+
+        Transport.addMechanic(ford, bob);
+        Transport.addMechanic(ford, alex);
+        Transport.addMechanic(ford, clark);
+        Transport.addMechanic(aston, bob);
+        System.out.println(Transport.getMechanics(ford));
+
+//        alex.performMaintenance(daf);
+//        bob.repairCar(ford);
     }
 }
