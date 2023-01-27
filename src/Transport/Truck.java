@@ -1,6 +1,8 @@
 package Transport;
 
 import Drivers.C_licence;
+import Drivers.CheckLicenceException;
+import Drivers.Driver;
 
 public class Truck<A extends C_licence> extends Transport {
 
@@ -62,6 +64,22 @@ public class Truck<A extends C_licence> extends Transport {
     }
 
     @Override
+    public void passDiagnostics(Driver driver) throws CheckLicenceException {
+        try {
+            getDriver((A) driver);
+        } catch (ClassCastException e) {
+            throw new CheckLicenceException("У водителя неподходящая категория прав!");
+        }
+    }
+
+    private void getDriver(A driver) throws CheckLicenceException {
+        if (driver.isLicence()) {
+            System.out.println(driver.getName() + " управляет автомобилем " + this.getBrand() + " " + this.getModel() + " и будет участвовать в заезде");
+        } else {
+            throw new CheckLicenceException("У водителя нет прав!");
+        }
+    }
+    @Override
     public void pitStop() {
         System.out.println(this.getBrand() + " " + this.getModel() + " заходит на пит-стоп");
     }
@@ -74,10 +92,6 @@ public class Truck<A extends C_licence> extends Transport {
     @Override
     public void getBestLap(int lapTime) {
         System.out.println("У " + this.getBrand() + " " + this.getModel() + " лучшее время круга: " + lapTime + " сек.");
-    }
-
-    public void getDriver(A driver) {
-        System.out.println(driver.getName() + " управляет автомобилем " + this.getBrand() + " " + this.getModel() + " и будет участвовать в заезде");
     }
 
     public BodyType getBodyType() {

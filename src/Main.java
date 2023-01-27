@@ -1,12 +1,13 @@
 import Drivers.B_licence;
 import Drivers.C_licence;
+import Drivers.CheckLicenceException;
 import Drivers.D_licence;
 import Transport.Bus;
 import Transport.Car;
 import Transport.Truck;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CheckLicenceException {
         Car bmw = new Car("BMW", "Z8", 4.9);
         Car mercedes = new Car("Mercedes", "AMG One", 1.6);
         Car ford = new Car("Ford", "GT40", 4.7);
@@ -28,12 +29,12 @@ public class Main {
 //        bmw.pitStop();
 //        volvo.getMaxSpeed(150);
 //        higer.getBestLap(248);
-//        D_licence max = new D_licence("Max", true, 5);
-//        maz.getDriver(max);
-//        C_licence ron = new C_licence("Ron", true, 8);
-//        daf.getDriver(ron);
-//        B_licence shon = new B_licence("Shon", true, 10);
-//        ford.getDriver(shon);
+        D_licence max = new D_licence("Max", true, 5);
+        maz.getDriver(max);
+        C_licence ron = new C_licence("Ron", true, 8);
+        daf.passDiagnostics(ron);
+        B_licence shon = new B_licence("Shon", false, 10);
+        ford.passDiagnostics(shon);
 //        maz.setBodyType(Bus.BodyType.MEDIUM);
 //        nefaz.setBodyType(Bus.BodyType.HIGH);
 //        maz.printType();
@@ -44,12 +45,13 @@ public class Main {
 //        bmw.printType();
 //        mercedes.printType();
 //        ford.printType();
-        daf.setBodyType(Truck.BodyType.N1);
-        volvo.setBodyType(Truck.BodyType.N2);
-        scania.setBodyType(Truck.BodyType.N3);
-        daf.printType();
-        volvo.printType();
-        scania.printType();
-        kamaz.printType();
+//        daf.setBodyType(Truck.BodyType.N1);
+//        volvo.setBodyType(Truck.BodyType.N2);
+//        scania.setBodyType(Truck.BodyType.N3);
+//        daf.printType();
+//        volvo.printType();
+//        scania.printType();
+//        kamaz.printType();
+
     }
 }

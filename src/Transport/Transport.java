@@ -1,5 +1,6 @@
 package Transport;
 
+import Drivers.CheckLicenceException;
 import Drivers.Driver;
 
 public abstract class Transport implements Competitive {
@@ -66,4 +67,6 @@ public abstract class Transport implements Competitive {
     }
 
     public abstract void printType();
+
+    public abstract void passDiagnostics(Driver driver) throws CheckLicenceException;
 }

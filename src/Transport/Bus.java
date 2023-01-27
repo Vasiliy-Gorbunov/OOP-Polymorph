@@ -1,6 +1,8 @@
 package Transport;
 
+import Drivers.CheckLicenceException;
 import Drivers.D_licence;
+import Drivers.Driver;
 
 public class Bus<A extends D_licence> extends Transport {
 
@@ -78,8 +80,17 @@ public class Bus<A extends D_licence> extends Transport {
         } else System.out.println("Тип ТС: "+bodyType.name()+"\n "+getBodyType());
     }
 
-    public void getDriver(A driver) {
-        System.out.println(driver.getName() + " управляет автомобилем " + this.getBrand() + " " + this.getModel() + " и будет участвовать в заезде");
+    @Override
+    public void passDiagnostics(Driver driver) {
+        throw new RuntimeException("Автобусам диагностика не проводится");
+    }
+
+    public void getDriver(A driver) throws CheckLicenceException {
+        if (driver.isLicence()) {
+            System.out.println(driver.getName() + " управляет автомобилем " + this.getBrand() + " " + this.getModel() + " и будет участвовать в заезде");
+        } else {
+            throw new CheckLicenceException("У водителя нет прав!");
+        }
     }
 
     public BodyType getBodyType() {
