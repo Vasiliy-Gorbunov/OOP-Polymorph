@@ -65,30 +65,33 @@ public class Main {
         LicenceC ron = new LicenceC("Ron", true, 8);
         LicenceD max = new LicenceD("Max", true, 5);
 
-        List<Driver> drivers = new LinkedList<>();
-        drivers.add(shon);
-        drivers.add(ron);
-        drivers.add(max);
+        ford.addDriver(shon);
+        ford.addDriver(shon);
+        ford.addDriver(shon);
+        ford.addDriver(ron);
+        ford.addDriver(ron);
+        ford.addDriver(max);
+        System.out.println(ford.getDrivers());
 
-        Mechanic alex = new Mechanic ("Alex", "PitMoto");
-        Mechanic bob = new Mechanic("Bob", "Ferrari");
-        Mechanic clark = new Mechanic("Clark", "Donnako");
-        Mechanic donny = new Mechanic("Donny", "RepairCo");
-        Mechanic john = new Mechanic("John", "FixIt");
+//        Mechanic alex = new Mechanic ("Alex", "PitMoto");
+//        Mechanic bob = new Mechanic("Bob", "Ferrari");
+//        Mechanic clark = new Mechanic("Clark", "Donnako");
+//        Mechanic donny = new Mechanic("Donny", "RepairCo");
+//        Mechanic john = new Mechanic("John", "FixIt");
 
-        Transport.addMechanic(ford, bob);
-        Transport.addMechanic(ford, alex);
-        Transport.addMechanic(ford, clark);
-        Transport.addMechanic(aston, bob);
-        System.out.println(Transport.getMechanics(ford));
+//        ford.addMechanic(bob);
+//        ford.addMechanic(alex);
+//        ford.addMechanic(clark);
+//        aston.addMechanic(bob);
+//        System.out.println(ford.getMechanics());
 
-        ServiceStation.addToQueue(ford);
-        ServiceStation.addToQueue(aston);
-        ServiceStation.addToQueue(kamaz);
-        ServiceStation.addToQueue(daf);
-        ServiceStation.addToQueue(scania);
-        ServiceStation.addToQueue(maz);
-        ServiceStation.conductService();
+//        ServiceStation.addToQueue(ford);
+//        ServiceStation.addToQueue(aston);
+//        ServiceStation.addToQueue(kamaz);
+//        ServiceStation.addToQueue(daf);
+//        ServiceStation.addToQueue(scania);
+//        ServiceStation.addToQueue(maz);
+//        ServiceStation.conductService();
 
 //        alex.performMaintenance(daf);
 //        bob.repairCar(ford);
