@@ -73,17 +73,25 @@ public class Main {
         ford.addDriver(max);
         System.out.println(ford.getDrivers());
 
-//        Mechanic alex = new Mechanic ("Alex", "PitMoto");
-//        Mechanic bob = new Mechanic("Bob", "Ferrari");
-//        Mechanic clark = new Mechanic("Clark", "Donnako");
-//        Mechanic donny = new Mechanic("Donny", "RepairCo");
-//        Mechanic john = new Mechanic("John", "FixIt");
+        Mechanic alex = new Mechanic ("Alex", "PitMoto");
+        Mechanic bob = new Mechanic("Bob", "Ferrari");
+        Mechanic clark = new Mechanic("Clark", "Donnako");
+        Mechanic donny = new Mechanic("Donny", "RepairCo");
+        Mechanic john = new Mechanic("John", "FixIt");
 
-//        ford.addMechanic(bob);
-//        ford.addMechanic(alex);
-//        ford.addMechanic(clark);
-//        aston.addMechanic(bob);
-//        System.out.println(ford.getMechanics());
+        ford.addMechanic(alex);
+        ford.addMechanic(alex);
+        ford.addMechanic(alex);
+        ford.addMechanic(bob);
+        kamaz.addMechanic(clark);
+        kamaz.addMechanic(clark);
+        kamaz.addMechanic(clark);
+        maz.addMechanic(donny);
+        maz.addMechanic(john);
+        maz.addMechanic(john);
+        maz.addMechanic(john);
+
+        System.out.println(Transport.getMechanics());
 
 //        ServiceStation.addToQueue(ford);
 //        ServiceStation.addToQueue(aston);
