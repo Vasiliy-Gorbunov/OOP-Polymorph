@@ -3,10 +3,7 @@ package Transport;
 import Drivers.CheckLicenceException;
 import Drivers.Driver;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public abstract class Transport implements Competitive {
 
