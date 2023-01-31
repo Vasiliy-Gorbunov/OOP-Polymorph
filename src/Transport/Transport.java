@@ -3,16 +3,17 @@ package Transport;
 import Drivers.CheckLicenceException;
 import Drivers.Driver;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public abstract class Transport implements Competitive {
+
+    private static Map<Transport, Set<Mechanic>> mechanics = new HashMap<>();
+
+    private Set<Driver> drivers = new HashSet<>();
 
     private final String brand;
     private final String model;
     private double engineVolume;
-    private List<Mechanic> mechanics = new LinkedList<>();
-
     public Transport(String brand, String model) {
         this(brand, model, 1.5);
     }
@@ -74,11 +75,41 @@ public abstract class Transport implements Competitive {
 
     public abstract void passDiagnostics(Driver driver) throws CheckLicenceException;
 
-    public static void addMechanic(Transport transport, Mechanic mechanic) {
-        transport.mechanics.add(mechanic);
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Transport transport = (Transport) o;
+        return Double.compare(transport.engineVolume, engineVolume) == 0 && Objects.equals(brand, transport.brand) && Objects.equals(model, transport.model);
     }
 
-    public static List<Mechanic> getMechanics(Transport transport) {
-        return transport.mechanics;
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, model, engineVolume);
+    }
+
+    public void addMechanic(Mechanic mechanic) {
+        Set<Mechanic> mechanicSet = mechanics.getOrDefault(this, new HashSet<>());
+        mechanicSet.add(mechanic);
+        mechanics.put(this, mechanicSet);
+    }
+    public static String getMechanics() {
+        StringBuilder builder = new StringBuilder();
+        for (Map.Entry<Transport, Set<Mechanic>> entry : mechanics.entrySet()) {
+            builder.append(entry.getKey().getBrand()).append(" ").append(entry.getKey().getModel()).append(" --> ");
+            for (Mechanic mechanic : entry.getValue()) {
+                builder.append(mechanic.getName()).append(", ");
+            }
+            builder.append("\n");
+        }
+        return builder.toString();
+    }
+
+    public Set<Driver> getDrivers() {
+        return drivers;
+    }
+
+    public void addDriver(Driver driver) {
+        drivers.add(driver);
     }
 }
