@@ -3,8 +3,10 @@ package Transport;
 import Drivers.CheckLicenceException;
 import Drivers.Driver;
 
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 public abstract class Transport implements Competitive {
 
@@ -12,6 +14,7 @@ public abstract class Transport implements Competitive {
     private final String model;
     private double engineVolume;
     private List<Mechanic> mechanics = new LinkedList<>();
+    private Set<Driver> drivers = new HashSet<>();
 
     public Transport(String brand, String model) {
         this(brand, model, 1.5);
@@ -74,11 +77,16 @@ public abstract class Transport implements Competitive {
 
     public abstract void passDiagnostics(Driver driver) throws CheckLicenceException;
 
-    public static void addMechanic(Transport transport, Mechanic mechanic) {
-        transport.mechanics.add(mechanic);
+    public void addMechanic(Mechanic mechanic) {
+        mechanics.add(mechanic);
     }
-
-    public static List<Mechanic> getMechanics(Transport transport) {
-        return transport.mechanics;
+    public List<Mechanic> getMechanics() {
+        return mechanics;
+    }
+    public void addDriver(Driver driver) {
+        drivers.add(driver);
+    }
+    public Set<Driver> getDrivers() {
+        return drivers;
     }
 }
