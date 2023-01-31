@@ -9,6 +9,8 @@ public abstract class Transport implements Competitive {
 
     private static Map<Transport, Set<Mechanic>> mechanics = new HashMap<>();
 
+    private Set<Driver> drivers = new HashSet<>();
+
     private final String brand;
     private final String model;
     private double engineVolume;
@@ -101,5 +103,13 @@ public abstract class Transport implements Competitive {
             builder.append("\n");
         }
         return builder.toString();
+    }
+
+    public Set<Driver> getDrivers() {
+        return drivers;
+    }
+
+    public void addDriver(Driver driver) {
+        drivers.add(driver);
     }
 }

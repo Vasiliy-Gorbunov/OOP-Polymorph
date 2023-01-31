@@ -71,7 +71,7 @@ public class Main {
         ford.addDriver(ron);
         ford.addDriver(ron);
         ford.addDriver(max);
-        System.out.println(ford.getDrivers());
+//        System.out.println(ford.getDrivers());
 
         Mechanic alex = new Mechanic ("Alex", "PitMoto");
         Mechanic bob = new Mechanic("Bob", "Ferrari");
