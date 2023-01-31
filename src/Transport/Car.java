@@ -1,10 +1,10 @@
 package Transport;
 
-import Drivers.B_licence;
+import Drivers.LicenceB;
 import Drivers.CheckLicenceException;
 import Drivers.Driver;
 
-public class Car<A extends B_licence> extends Transport {
+public class Car<A extends LicenceB> extends Transport {
 
     public enum BodyType {
         SEDAN("Седан"),
@@ -60,7 +60,9 @@ public class Car<A extends B_licence> extends Transport {
     public void printType() {
         if (bodyType == null) {
             System.out.println("Данных по транспортному средству недостаточно");
-        } else System.out.println("Тип ТС: " + bodyType.name() + "\n " + getBodyType());
+        } else {
+            System.out.println("Тип ТС: " + bodyType.name() + "\n " + getBodyType());
+        }
     }
 
     @Override

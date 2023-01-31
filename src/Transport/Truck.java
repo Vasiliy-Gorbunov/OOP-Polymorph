@@ -1,10 +1,10 @@
 package Transport;
 
-import Drivers.C_licence;
+import Drivers.LicenceC;
 import Drivers.CheckLicenceException;
 import Drivers.Driver;
 
-public class Truck<A extends C_licence> extends Transport {
+public class Truck<A extends LicenceC> extends Transport {
 
     public enum BodyType {
         N1(null, 3.5f),
@@ -25,7 +25,9 @@ public class Truck<A extends C_licence> extends Transport {
                 return "Грузоподъёмность до " + upperLimit + " тонн";
             } else if (upperLimit == null) {
                 return "Грузоподъёмность от " + lowerLimit + " тонн";
-            } else return "Грузоподъёмность от " + lowerLimit + " до " + upperLimit + " тонн";
+            } else {
+                return "Грузоподъёмность от " + lowerLimit + " до " + upperLimit + " тонн";
+            }
         }
     }
 
@@ -60,7 +62,9 @@ public class Truck<A extends C_licence> extends Transport {
     public void printType() {
         if (bodyType == null) {
             System.out.println("Данных по транспортному средству недостаточно");
-        } else System.out.println("Тип ТС: "+bodyType.name()+"\n "+getBodyType());
+        } else {
+            System.out.println("Тип ТС: " + bodyType.name() + "\n " + getBodyType());
+        }
     }
 
     @Override
@@ -79,6 +83,7 @@ public class Truck<A extends C_licence> extends Transport {
             throw new CheckLicenceException("У водителя нет прав!");
         }
     }
+
     @Override
     public void pitStop() {
         System.out.println(this.getBrand() + " " + this.getModel() + " заходит на пит-стоп");

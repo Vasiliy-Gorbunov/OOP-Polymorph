@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws CheckLicenceException {
+    public static void main(String[] args) {
         Car bmw = new Car("BMW", "Z8", 4.9);
         Car mercedes = new Car("Mercedes", "AMG One", 1.6);
         Car ford = new Car("Ford", "GT40", 4.7);
@@ -61,9 +61,9 @@ public class Main {
         transports.add(higer);
         transports.add(kingLong);
 
-        B_licence shon = new B_licence("Shon", true, 10);
-        C_licence ron = new C_licence("Ron", true, 8);
-        D_licence max = new D_licence("Max", true, 5);
+        LicenceB shon = new LicenceB("Shon", true, 10);
+        LicenceC ron = new LicenceC("Ron", true, 8);
+        LicenceD max = new LicenceD("Max", true, 5);
 
         List<Driver> drivers = new LinkedList<>();
         drivers.add(shon);

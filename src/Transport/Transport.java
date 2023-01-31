@@ -11,7 +11,7 @@ public abstract class Transport implements Competitive {
     private final String brand;
     private final String model;
     private double engineVolume;
-    private LinkedList<Mechanic> mechanics = new LinkedList<>();
+    private List<Mechanic> mechanics = new LinkedList<>();
 
     public Transport(String brand, String model) {
         this(brand, model, 1.5);

@@ -1,17 +1,17 @@
 package Transport;
 
 import Drivers.CheckLicenceException;
-import Drivers.D_licence;
+import Drivers.LicenceD;
 import Drivers.Driver;
 
-public class Bus<A extends D_licence> extends Transport {
+public class Bus<A extends LicenceD> extends Transport {
 
-    public enum BodyType{
+    public enum BodyType {
         EXTRA_SMALL(null, 10),
         SMALL(null, 25),
         MEDIUM(40, 50),
-        HIGH(60,80),
-        EXTRA_HIGH(100,120);
+        HIGH(60, 80),
+        EXTRA_HIGH(100, 120);
 
         private final Integer lowerCapacity;
         private final Integer higherCapacity;
@@ -27,7 +27,9 @@ public class Bus<A extends D_licence> extends Transport {
                 return "Вместимость до " + higherCapacity + " человек";
             } else if (higherCapacity == null) {
                 return "Вместимость от " + lowerCapacity + " человек";
-            } else return "Вместимость от " + lowerCapacity + " до " + higherCapacity + " человек";
+            } else {
+                return "Вместимость от " + lowerCapacity + " до " + higherCapacity + " человек";
+            }
         }
     }
 
@@ -77,7 +79,7 @@ public class Bus<A extends D_licence> extends Transport {
     public void printType() {
         if (bodyType == null) {
             System.out.println("Данных по транспортному средству недостаточно");
-        } else System.out.println("Тип ТС: "+bodyType.name()+"\n "+getBodyType());
+        } else System.out.println("Тип ТС: " + bodyType.name() + "\n " + getBodyType());
     }
 
     @Override
